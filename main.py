@@ -34,7 +34,7 @@ try:
     content = result['msg']
     # 进行推送
     if WXPUSHER != '':
-        push_url = push_url ='{}{}'.format(WXPUSHER, content)
+        push_url = '{}{}'.format(WXPUSHER, content)
         requests.get(url=push_url)
         print('推送成功')
 except:
