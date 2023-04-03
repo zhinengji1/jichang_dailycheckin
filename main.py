@@ -6,7 +6,7 @@ email = os.environ.get('EMAIL')
 # 配置用户名对应的密码 和上面的email对应上
 passwd = os.environ.get('PASSWD')
 #微信推送完整链接
-WXPUSHER = os.environ.get('SCKEY')
+WXPUSHER = os.environ.get('WXPUSHER')
 
 login_url = 'https://ikuuu.eu/auth/login'
 check_url = 'https://ikuuu.eu/user/checkin'
