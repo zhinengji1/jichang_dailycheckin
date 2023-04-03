@@ -34,12 +34,12 @@ try:
     content = result['msg']
     # 进行推送
     if WXPUSHER != '':
-        push_url = WXPUSHER+content
+        push_url = WXPUSHER+str(content)
         requests.get(url=push_url)
         print('推送成功')
 except:
     content = '签到失败'
     print(content)
     if WXPUSHER != '':
-        push_url = WXPUSHER+content
+        push_url = WXPUSHER+str(content)
         requests.get(url=push_url)
