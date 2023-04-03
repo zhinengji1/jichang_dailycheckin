@@ -35,6 +35,7 @@ try:
     # 进行推送
     if WXPUSHER != '':
         push_url = '{}{}'.format(WXPUSHER, content)
+        print(push_url)
         requests.get(url=push_url)
         print('推送成功')
 except:
