@@ -5,8 +5,8 @@ session = requests.session()
 email = os.environ.get('EMAIL')
 # 配置用户名对应的密码 和上面的email对应上
 passwd = os.environ.get('PASSWD')
-# server酱
-SCKEY = os.environ.get('SCKEY')
+#微信推送完整链接
+WXPUSHER = os.environ.get('SCKEY')
 
 login_url = 'https://ikuuu.eu/auth/login'
 check_url = 'https://ikuuu.eu/user/checkin'
@@ -33,9 +33,9 @@ try:
     print(result['msg'])
     content = result['msg']
     # 进行推送
-    if SCKEY != '':
-        push_url = 'https://sctapi.ftqq.com/{}.send?title=ikuu签到&desp={}'.format(SCKEY, content)
-        requests.post(url=push_url)
+    if WXPUSHER != '':
+        push_url = WXPUSHER+content
+        requests.get(url=push_url)
         print('推送成功')
 except:
     content = '签到失败'
