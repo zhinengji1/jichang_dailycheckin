@@ -7,7 +7,7 @@ email = os.environ.get('EMAIL')
 passwd = os.environ.get('PASSWD')
 #微信推送完整链接
 WXPUSHER = os.environ.get('WXPUSHER')
-print('w',WXPUSHER)
+
 login_url = 'https://ikuuu.eu/auth/login'
 check_url = 'https://ikuuu.eu/user/checkin'
 info_url = 'https://ikuuu.eu/user/profile'
@@ -34,7 +34,7 @@ try:
     content = result['msg']
     # 进行推送
     if WXPUSHER != '':
-        push_url = '{}{}'.format(WXPUSHER, content)
+        push_url = WXPUSHER+content
         print(push_url)
         requests.get(url=push_url)
         print('推送成功')
@@ -42,5 +42,5 @@ except:
     content = '签到失败'
     print(content)
     if WXPUSHER != '':
-        push_url = push_url ='{}{}'.format(WXPUSHER, content)
+        push_url =WXPUSHER+content
         requests.get(url=push_url)
