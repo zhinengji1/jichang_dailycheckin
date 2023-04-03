@@ -20,7 +20,6 @@ data = {
         'email': email,
         'passwd': passwd
 }
-push_url = WXPUSHER+content
 try:
     print('进行登录...')
     response = json.loads(session.post(url=login_url,headers=header,data=data).text)
@@ -35,10 +34,12 @@ try:
     content = result['msg']
     # 进行推送
     if WXPUSHER != '':
+        push_url = WXPUSHER+content
         requests.get(url=push_url)
         print('推送成功')
 except:
     content = '签到失败'
     print(content)
     if WXPUSHER != '':
+        push_url = WXPUSHER+content
         requests.get(url=push_url)
