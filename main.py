@@ -40,6 +40,6 @@ try:
 except:
     content = '签到失败'
     print(content)
-    if SCKEY != '':
-        push_url = 'https://sctapi.ftqq.com/{}.send?title=ikuu签到&desp={}'.format(SCKEY, content)
-        requests.post(url=push_url)
+    if WXPUSHER != '':
+        push_url = 'https://sctapi.ftqq.com/{}.send?title=ikuu签到&desp={}'.format(WXPUSHER, content)
+        requests.get(url=push_url)
